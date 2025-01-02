@@ -1,12 +1,11 @@
 package com.capstone.lightalert;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 /**
- * Health check with bananas.
+ * Health check with an alert.
  */
 public class HealthController {
 
