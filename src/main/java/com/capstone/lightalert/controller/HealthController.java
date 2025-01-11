@@ -1,4 +1,4 @@
-package com.capstone.lightalert;
+package com.capstone.lightalert.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

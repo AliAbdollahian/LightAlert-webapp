@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+</head>
+<body>
+<h1 th:text="${welcome}"></h1>
+<p>Here is the list of videos you have:</p>
+
+<ul>
+  <li th:each="video : ${videos}">
+    <p th:text="'Video URL: ' + ${video.videoURL}"></p>
+    <p th:text="'Upload Date: ' + ${video.uploadDate}"></p>
+    <p th:text="'Metadata: ' + ${video.metadata}"></p>
+  </li>
+</ul>
+<div th:if="${message != null}">
+  <p th:text="${message}"></p>
+</div>
+<a th:href="@{/home/systemId}">Enter your camera system ID here</a>
+</body>
+</html>

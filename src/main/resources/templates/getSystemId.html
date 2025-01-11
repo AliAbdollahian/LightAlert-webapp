@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter System ID</title>
+</head>
+<body>
+
+<div th:if="${message != null}">
+  <p th:text="${message}"></p>
+</div>
+<form action="/home/systemId" method="post">
+  <p>Enter System ID</p>
+  <label>
+    <input type="text" name="systemId" required />
+  </label>
+  <input type="submit" value="Submit">
+  <button type="submit" formmethod="post" formaction="/home/systemId" name="update" value="update">Update</button>
+</form>
+<p>
+</p>
+<a href="/home">Return to Homepage</a>
+</body>
+</html>
