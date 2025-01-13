@@ -6,18 +6,38 @@
 </head>
 <body>
 <h1 th:text="${welcome}"></h1>
-<p>Here is the list of videos you have:</p>
 
-<ul>
-  <li th:each="video : ${videos}">
-    <p th:text="'Video URL: ' + ${video.videoURL}"></p>
-    <p th:text="'Upload Date: ' + ${video.uploadDate}"></p>
-    <p th:text="'Metadata: ' + ${video.metadata}"></p>
-  </li>
-</ul>
+<form action="/upload-video" method="post" enctype="multipart/form-data">
+  <label for="videoFile">Select Video:</label>
+  <input type="file" id="videoFile" name="videoFile" required>
+
+  <button type="submit">Upload</button>
+</form>
+
+
+<div th:if="${error}">
+  <p th:text="${error}"></p>
+</div>
+
+<div>
+  <h2>Your Videos</h2>
+  <ul>
+    <li th:each="video : ${videos}">
+      <a th:href="${video.videoURL}" target="_blank" th:text="${video.videoURL}">Video Link</a>
+      <p>Uploaded on: <span th:text="${video.uploadDate}"></span></p>
+      <p>Metadata: <span th:text="${video.metadata}"></span></p>
+    </li>
+  </ul>
+</div>
+
+
 <div th:if="${message != null}">
   <p th:text="${message}"></p>
 </div>
+
+
 <a th:href="@{/home/systemId}">Enter your camera system ID here</a>
+
 </body>
 </html>
+

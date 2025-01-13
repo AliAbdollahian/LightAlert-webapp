@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface VideosRepository extends JpaRepository<Videos, Long> {
-    List<Videos> findBySystemId(String systemId);
+
+    List<Videos> findByUser_SystemId(String systemId);
 }
+

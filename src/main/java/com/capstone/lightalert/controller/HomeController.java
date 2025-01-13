@@ -25,11 +25,11 @@ public class HomeController {
         if (email.isEmpty()) {
             return "redirect:/login";
         }
-        userRepository.findByEmail(email).ifPresent(user -> model.addAttribute("user", user));
-        List<Videos> videosList = videosRepository.findAll();
-        model.addAttribute("videos", videosList);
-
-        model.addAttribute("welcome", "Welcome " + email + "!");
+        userRepository.findByEmail(email).ifPresent(user -> {
+            model.addAttribute("user", user);
+            List<Videos> videosList = videosRepository.findByUser_SystemId(user.getSystemId());
+            model.addAttribute("videos", videosList);
+        });
         return "home";
     }
 }

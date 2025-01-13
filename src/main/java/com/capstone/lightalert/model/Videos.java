@@ -6,12 +6,10 @@ import java.sql.Date;
 @Entity
 @Table(name = "videos")
 public class Videos {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(name = "system_id", insertable = false, updatable = false)
-    private String systemId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "system_id", referencedColumnName = "system_id")
+    private Users user;
 
     @Column(name = "video_url", nullable = false)
     private String videoURL;
@@ -19,29 +17,19 @@ public class Videos {
     @Column(name = "upload_date", nullable = false)
     private Date uploadDate;
 
-    @Column(name = "metadata")
-    private String metadata;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "system_id")
-    private Users user;
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     public String getSystemId() {
-        return systemId;
+        return user != null ? user.getSystemId() : null; // Get systemId from Users entity
     }
 
     public void setSystemId(String systemId) {
-        this.systemId = systemId;
+        if (user == null) {
+            user = new Users();
+        }
+        user.setSystemId(systemId); // Set systemId through the Users entity
     }
 
     public String getVideoURL() {
@@ -67,5 +55,9 @@ public class Videos {
     public void setMetadata(String metadata) {
         this.metadata = metadata;
     }
-}
 
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+}
