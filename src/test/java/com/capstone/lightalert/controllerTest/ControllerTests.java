@@ -1,11 +1,8 @@
 package com.capstone.lightalert.controllerTest;
 
-
 import com.capstone.lightalert.model.Users;
 import com.capstone.lightalert.repository.UserRepository;
 import com.capstone.lightalert.repository.VideosRepository;
-import com.capstone.lightalert.service.BlobStorageService;
-import jakarta.servlet.http.Cookie;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,9 +11,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
+
 import java.util.Optional;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -63,7 +60,7 @@ public class ControllerTests {
 
     @Test
     void loginSuccess() throws Exception {
-        Argon2PasswordEncoder encoder = new Argon2PasswordEncoder(16,32,1,10,1000);
+        Argon2PasswordEncoder encoder = new Argon2PasswordEncoder(16, 32, 1, 10, 1000);
         String hashedPassword = encoder.encode("password");
         Users user = new Users("user@example.com", hashedPassword);
         when(userRepository.findByEmail("user@example.com")).thenReturn(Optional.of(user));
