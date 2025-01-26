@@ -53,9 +53,8 @@ public class SystemIdController {
         if (user.getSystemId() == null || user.getSystemId().isEmpty()) {
             user.setSystemId(systemId);
             userRepository.save(user);
-            redirectAttributes.addFlashAttribute("message", "System ID updated successfully!");
+            redirectAttributes.addFlashAttribute("message", "System ID saved successfully!");
         } else if (!user.getSystemId().equals(systemId)) {
-            // If a system ID is already set and it's different from the new one, update it
             user.setSystemId(systemId);
             userRepository.save(user);
             redirectAttributes.addFlashAttribute("message", "System ID updated successfully!");

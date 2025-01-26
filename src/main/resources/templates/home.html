@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
 </head>
 <body>
@@ -10,10 +11,8 @@
 <form action="/upload-video" method="post" enctype="multipart/form-data">
   <label for="videoFile">Select Video:</label>
   <input type="file" id="videoFile" name="videoFile" required>
-
   <button type="submit">Upload</button>
 </form>
-
 
 <div th:if="${error}">
   <p th:text="${error}"></p>
@@ -21,23 +20,28 @@
 
 <div>
   <h2>Your Videos</h2>
-  <ul>
-    <li th:each="video : ${videos}">
-      <a th:href="${video.videoURL}" target="_blank" th:text="${video.videoURL}">Video Link</a>
-      <p>Uploaded on: <span th:text="${video.uploadDate}"></span></p>
-      <p>Metadata: <span th:text="${video.metadata}"></span></p>
-    </li>
-  </ul>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+    <tr>
+      <th>Video Link</th>
+      <th>Upload Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="video : ${videos}">
+      <td><a th:href="${video.videoURL}" target="_blank" th:text="${video.videoURL}"></a></td>
+      <td th:text="${video.uploadDate}"></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
-
 
 <div th:if="${message != null}">
   <p th:text="${message}"></p>
 </div>
 
-
 <a th:href="@{/home/systemId}">Enter your camera system ID here</a>
-
 </body>
 </html>
+
 

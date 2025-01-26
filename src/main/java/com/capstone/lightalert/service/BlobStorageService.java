@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-
 @Service
 public class BlobStorageService {
     @Value("${spring.cloud.azure.storage.blob.container-name}")
@@ -31,7 +30,6 @@ public class BlobStorageService {
     public String uploadVideo(MultipartFile file, String systemId) throws IOException {
 
         String blobUrl = uploadFileToBlobStorage(file);
-
 
         Videos video = new Videos();
         video.setVideoURL(blobUrl);

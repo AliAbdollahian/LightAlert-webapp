@@ -1,6 +1,7 @@
 package com.capstone.lightalert.model;
 
 import jakarta.persistence.*;
+
 import java.sql.Date;
 
 @Entity
@@ -22,14 +23,14 @@ public class Videos {
     private Long id;
 
     public String getSystemId() {
-        return user != null ? user.getSystemId() : null; // Get systemId from Users entity
+        return user != null ? user.getSystemId() : null;
     }
 
     public void setSystemId(String systemId) {
         if (user == null) {
             user = new Users();
         }
-        user.setSystemId(systemId); // Set systemId through the Users entity
+        user.setSystemId(systemId);
     }
 
     public String getVideoURL() {
@@ -46,14 +47,6 @@ public class Videos {
 
     public void setUploadDate(Date uploadDate) {
         this.uploadDate = uploadDate;
-    }
-
-    public String getMetadata() {
-        return metadata;
-    }
-
-    public void setMetadata(String metadata) {
-        this.metadata = metadata;
     }
 
     public void setUser(Users user) {
