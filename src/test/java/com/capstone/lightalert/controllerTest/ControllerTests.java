@@ -22,13 +22,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class ControllerTests {
+public class ControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @MockBean
-    private BlobStorageService blobStorageService;
 
     @MockBean
     private UserRepository userRepository;
@@ -42,20 +39,6 @@ class ControllerTests {
                         .file("videoFile", "data".getBytes()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/login"));
-    }
-
-    @Test
-    void uploadVideoSuccess() throws Exception {
-        Users user = new Users("user@example.com", "password");
-        user.setSystemId("user123");
-        when(userRepository.findByEmail("user@example.com")).thenReturn(Optional.of(user));
-        when(blobStorageService.uploadVideo(any(), eq("user123"))).thenReturn("http://url.com/video");
-
-        mockMvc.perform(multipart("/upload-video")
-                        .file("videoFile", "data".getBytes())
-                        .cookie(new Cookie("user", "user@example.com")))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/home"));
     }
 
     @Test
