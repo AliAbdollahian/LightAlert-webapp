@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-<a href="https://light-alert-g9ajcnaqb6dweqeh.canadacentral-01.azurewebsites.net/">💻 Web App</a> |
+<a href="https://light-alert-g9ajcnaqb6dweqeh.canadacentral-01.azurewebsites.net/">💻 Web App</a> 
 </p>
 
 Light Alert is a web application built using **Spring MVC** and **Java**, designed to streamline traffic monitoring by providing users with a platform to view videos recorded by traffic light detection cameras. The app is part of the **Light Alert** system, leveraging **Azure** for deployment and data management.
