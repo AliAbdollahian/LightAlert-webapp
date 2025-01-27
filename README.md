@@ -1,6 +1,8 @@
-# Light Alert - Traffic Light Detection Web App
+<h1 align="center">Light Alert - Traffic Light Detection Web App</h1>
 
-![Build and Deploy](https://github.com/AliAbdollahian/LightAlert-webapp/actions/workflows/main_light-alert.yml/badge.svg)
+<p align="center">
+  <img src="https://github.com/AliAbdollahian/LightAlert-webapp/actions/workflows/main_light-alert.yml/badge.svg" alt="Build and Deploy">
+</p>
 
 <p align="center">
 <a href="https://light-alert-g9ajcnaqb6dweqeh.canadacentral-01.azurewebsites.net/">🌐 Web App</a> |
