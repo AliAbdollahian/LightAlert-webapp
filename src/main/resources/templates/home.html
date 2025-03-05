@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
 </head>
 <body>
-<!-- Welcome Message -->
-<h1 th:text="${welcome}">Welcome to the Home Page</h1>
+<header>
+  <h1 th:text="${welcomeMessage}">Welcome to the Home Page</h1>
+</header>
 
 <!-- Upload Form -->
 <form action="/upload-video" method="post" enctype="multipart/form-data">

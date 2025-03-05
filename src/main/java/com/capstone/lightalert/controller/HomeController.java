@@ -29,6 +29,7 @@ public class HomeController {
             model.addAttribute("user", user);
             List<Videos> videosList = videosRepository.findByUser_SystemId(user.getSystemId());
             model.addAttribute("videos", videosList);
+            model.addAttribute("welcomeMessage", "Welcome, " + user.getEmail() + "!");
         });
         return "home";
     }

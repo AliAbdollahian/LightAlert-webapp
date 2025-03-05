@@ -1,6 +1,5 @@
 package com.capstone.lightalert.controller;
 
-
 import com.capstone.lightalert.model.Users;
 import com.capstone.lightalert.repository.UserRepository;
 import org.springframework.stereotype.Controller;

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <title>Create new account</title>
 </head>
 <p>Already have an account? <a href="./login">Log in</a></p>
 <body>
-<h1>Sign up</h1>
+<header> <h1>Sign up</h1> </header>
 
 <form action="/signup" method="POST">
 
-
+<p></p>
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" placeholder="Enter your email address" required>
 
@@ -33,6 +34,8 @@
 </div>
 <p>
 </p>
+<footer>
 <a href="/">Return to Homepage</a>
+</footer>
 </body>
 </html>
