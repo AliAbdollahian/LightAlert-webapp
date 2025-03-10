@@ -11,12 +11,12 @@
   <h1 th:text="${welcomeMessage}">Welcome to the Home Page</h1>
 </header>
 
-<!-- Upload Form -->
-<form action="/upload-video" method="post" enctype="multipart/form-data">
-  <label for="videoFile">Select Video:</label>
-  <input type="file" id="videoFile" name="videoFile" required>
-  <button type="submit">Upload</button>
-</form>
+<!--&lt;!&ndash; Upload Form &ndash;&gt;-->
+<!--<form action="/upload-video" method="post" enctype="multipart/form-data">-->
+<!--  <label for="videoFile">Select Video:</label>-->
+<!--  <input type="file" id="videoFile" name="videoFile" required>-->
+<!--  <button type="submit">Upload</button>-->
+<!--</form>-->
 
 <!-- Error Message -->
 <div th:if="${error}" style="color: red; margin-top: 10px;">
